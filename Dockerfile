@@ -2,13 +2,13 @@ FROM debian:jessie
 MAINTAINER Pierre DAVID <pierre.david@c-s.fr>
 EXPOSE 80 443
 
-# CS Proxy
-COPY ./config/proxy/proxy.sh /etc/profile.d/proxy.sh
-COPY ./config/proxy/99HttpProxy /etc/apt/apt.conf.d/99HttpProxy
+# Proxy if needed
+# COPY ./config/proxy/proxy.sh /etc/profile.d/proxy.sh
+# COPY ./config/proxy/99HttpProxy /etc/apt/apt.conf.d/99HttpProxy
 RUN apt-get update
 RUN apt-get install -y -f curl
 RUN apt-get install -y -f wget
-COPY ./config/proxy/wgetrc /etc/wgetrc
+# COPY ./config/proxy/wgetrc /etc/wgetrc
 
 # APACHE 2.24 + PHP 5.6.4
 RUN  apt-get install -y apache2
